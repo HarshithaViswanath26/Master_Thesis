@@ -65,6 +65,10 @@ MXTmpFiles/
 Thumbs.db
 desktop.ini
 
+# Full ST firmware package (download from st.com, version V1.10.0)
+**/stm32cubewba-v1-10-0/
+**/STM32Cube_FW_WBA_*/
+
 # ---- Your own measurement data and exports (optional) ----
 # Uncomment if you log current traces or BLE captures inside the repo
 # measurements/raw/

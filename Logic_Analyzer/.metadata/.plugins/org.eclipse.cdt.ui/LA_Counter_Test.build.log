@@ -1,0 +1,10 @@
+13:52:54 **** Incremental Build of configuration Debug for project LA_Counter_Test ****
+make -j8 all 
+arm-none-eabi-size  LA_Counter_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6968	     12	   1572	   8552	   2168	LA_Counter_Test.elf
+Finished building: default.size.stdout
+ 
+
+13:52:54 Build Finished. 0 errors, 0 warnings. (took 410ms)
+

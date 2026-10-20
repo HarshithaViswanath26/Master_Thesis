@@ -1,0 +1,71 @@
+# ==============================================
+# .gitignore for STM32CubeIDE / CubeMX projects
+# (MiMoSe sensor node firmware)
+# ==============================================
+
+# ---- Build output folders ----
+Debug/
+Release/
+build/
+**/Debug/
+**/Release/
+
+# ---- Compiler and linker output ----
+*.o
+*.d
+*.su
+*.cyclo
+*.elf
+*.map
+*.list
+*.lst
+*.hex
+*.srec
+*.bin
+*.axf
+*.out
+*.obj
+makefile
+objects.mk
+objects.list
+sources.mk
+subdir.mk
+
+# Keep prebuilt libraries (BLE stack, link layer, etc.)
+# Do NOT add *.a here, the STM32_WPAN stack ships as .a files.
+
+# ---- Eclipse / CubeIDE workspace and user settings ----
+.metadata/
+RemoteSystemsTempFiles/
+.settings/
+*.launch
+.cproject.bak
+.project.bak
+
+# ---- CubeMX backup and temp files ----
+*.ioc.bak
+*.ioc~
+.mxproject.bak
+*_backup/
+MXTmpFiles/
+
+# ---- Debugger / ST-Link logs ----
+*.log
+*.jdebug
+*.jdebug.user
+
+# ---- Editors and IDEs ----
+.vscode/
+.idea/
+*.swp
+*~
+
+# ---- OS junk ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Your own measurement data and exports (optional) ----
+# Uncomment if you log current traces or BLE captures inside the repo
+# measurements/raw/
+# *.csv

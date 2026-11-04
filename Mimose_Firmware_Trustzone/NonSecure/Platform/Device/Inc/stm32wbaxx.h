@@ -163,6 +163,19 @@ typedef enum
   ERROR = !SUCCESS
 } ErrorStatus;
 
+typedef enum
+{
+	STATUS_ERROR = 0,
+	STATUS_OK = !STATUS_ERROR
+} ResultStatus;
+
+typedef enum
+{
+	BITNOTSET = 0,
+	BITSET = !BITNOTSET
+} BitStatus;
+
+
 /**
   * @}
   */

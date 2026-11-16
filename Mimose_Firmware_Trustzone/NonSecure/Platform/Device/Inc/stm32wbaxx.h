@@ -173,7 +173,7 @@ typedef enum
 {
 	BITNOTSET = 0,
 	BITSET = !BITNOTSET
-} BitStatus;
+} BitStatus, BitValue;
 
 
 /**

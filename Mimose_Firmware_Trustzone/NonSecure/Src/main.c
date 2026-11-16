@@ -17,13 +17,41 @@
  */
 
 #include <stdint.h>
+#include "mcu_gpio.h"
 
-#if !defined(__SOFT_FP__) && defined(__ARM_FP)
-  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
-#endif
+void delay(void)
+{
+	for(volatile uint32_t i = 0; i < 100000U; i++);
+}
 
 int main(void)
 {
-    /* Loop forever */
-	for(;;);
+	// Led - user LED LD3 - PB15
+	GPIO_RCCClk_Enable(GPIOB_NS, ENABLE);
+
+	GPIO_Handle_t userLed = {0};
+	userLed.port = GPIOB_NS;
+	userLed.pin.pinNum = PIN_15;
+	userLed.pin.mode = OutputMode;
+	userLed.pin.outputSpeed = HighSpeed;
+	userLed.pin.outputType = PushPull;
+	userLed.pin.puPdType = NoPuPd;
+
+	GPIO_Init(&userLed);
+	//GPIO_LEDOn(userLed.port, userLed.pin.pinNum);
+	//GPIO_LEDOff(userLed.port, userLed.pin.pinNum);
+	//delay();
+	//GPIO_LEDOff(userLed.port, userLed.pin.pinNum);
+
+	while(1)
+	{
+		GPIO_LEDToggle(userLed.port, userLed.pin.pinNum);
+		delay();
+
+		/*GPIO_LEDOn(userLed.port, userLed.pin.pinNum);
+		for(volatile uint32_t i = 0; i < 300000; i++);
+		GPIO_LEDOff(userLed.port, userLed.pin.pinNum);
+		for(volatile uint32_t i = 0; i < 300000; i++);
+		*/
+	}
 }

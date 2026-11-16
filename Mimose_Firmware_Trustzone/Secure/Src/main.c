@@ -17,11 +17,7 @@
  */
 
 #include <stdint.h>
-
-#if !defined(__SOFT_FP__) && defined(__ARM_FP)
-  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
-#endif
-#warning "Secure / Non-Secure regions are not initialized. Please add code to properly initialize the Secure / Non-secure regions. This can be ignored if you know what you are doing."
+#include "tz_setup.h"
 
 int main(void)
 {
@@ -31,6 +27,10 @@ int main(void)
 	 */
 
     /* Loop forever */
+
+	TZ_setupSecureSection();
+	TZ_jumpToNonSecure();
+
 	for(;;);
 }
 
